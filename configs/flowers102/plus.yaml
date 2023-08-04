@@ -1,0 +1,70 @@
+#
+# Copyright (C) 2023 Apple Inc. All rights reserved.
+#
+parameters:
+  dataset: flowers102
+  trainer: DR
+  arch: timm
+  model:
+    model_name: resnet50d
+    pretrained: false
+    num_classes: 102
+  loss:
+    label_smoothing: 0.1
+  optim:
+    name: sgd
+    lr: 0.2
+    momentum: 0.9
+    weight_decay: 5.e-4
+    warmup_length: 0
+    no_decay_bn_filter_bias: false
+    nesterov: false
+  epochs: 10000
+  save_freq: 100
+  start_epoch: 0
+  batch_size: 256
+  print_freq: 100
+  resume: ''
+  evaluate: false
+  pretrained: false
+  dist_url: 'tcp://127.0.0.1:23333'
+  dist_backend: 'nccl'
+  # Single GPU training
+  multiprocessing_distributed: false
+  world_size: 1
+  rank: 0
+  workers: 8
+  pin_memory: true
+  persistent_workers: true
+  seed: NULL
+  gpu: 0
+  download_data: false  # Set to True to download
+  data_path: ''
+  artifact_path: ''
+  image_augmentation:
+    train:
+      random_resized_crop:
+        size: 224
+      rand_augment:  # No horizontal flip when rand-augment is enabled
+        enable: true
+      to_tensor:
+        enable: true
+      normalize:
+        mean: [0.485, 0.456, 0.406]
+        std: [0.229, 0.224, 0.225]
+    val:
+      resize:
+        size: 256
+      center_crop:
+        size: 224
+      to_tensor:
+        enable: true
+      normalize:
+        mean: [0.485, 0.456, 0.406]
+        std: [0.229, 0.224, 0.225]
+  reinforce:
+    enable: true
+    p: 0.99
+    num_samples: NULL
+    densify: smooth
+    data_path: NULL

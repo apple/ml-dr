@@ -1,0 +1,74 @@
+#
+# Copyright (C) 2023 Apple Inc. All rights reserved.
+#
+parameters:
+  dataset: cifar100
+  trainer: ERM
+  arch: timm
+  model:
+    model_name: resnet50d
+    pretrained: false
+    num_classes: 100
+    # TODO: load timm checkpoint
+  loss:
+    label_smoothing: 0.1
+  optim:
+    name: sgd
+    lr: 0.002
+    momentum: 0.9
+    weight_decay: 5.e-4
+    warmup_length: 0
+    no_decay_bn_filter_bias: false
+    nesterov: false
+  epochs: 1000
+  save_freq: 100
+  start_epoch: 0
+  batch_size: 256
+  print_freq: 100
+  resume: ''
+  evaluate: false
+  pretrained: false
+  dist_url: 'tcp://127.0.0.1:23333'
+  dist_backend: 'nccl'
+  # Single GPU training
+  multiprocessing_distributed: false
+  world_size: 1
+  rank: 0
+  workers: 8
+  pin_memory: true
+  persistent_workers: true
+  seed: NULL
+  gpu: 0
+  download_data: false  # Set to True to download
+  data_path: ''
+  artifact_path: ''
+  image_augmentation:
+    train:
+      resize:
+        size: 224
+      random_crop:
+        size: 224
+        padding: 16
+      rand_augment:  # No horizontal flip when rand-augment is enabled
+        enable: true
+      to_tensor:
+        enable: true
+      normalize:
+        mean: [0.507075159237, 0.4865488733149, 0.440917843367]
+        std: [0.267334285879, 0.2564384629170, 0.276150471325]
+      mixup:
+        enable: true
+        alpha: 0.2
+        p: 1.0
+      cutmix:
+        enable: true
+        alpha: 1.0
+        p: 1.0
+    val:
+      resize:
+        size: 224
+      to_tensor:
+        enable: true
+      normalize:
+        mean: [0.507075159237, 0.4865488733149, 0.440917843367]
+        std: [0.267334285879, 0.2564384629170, 0.276150471325]

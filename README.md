@@ -4,7 +4,6 @@ A light-weight implementation of Dataset Reinforcement, pretrained checkpoints, 
 **[Reinforce Data, Multiply Impact: Improved Model Accuracy and Robustness with Dataset Reinforcement.](https://arxiv.org/abs/2303.08983)**
 *, Faghri, F., Pouransari, H., Mehta, S., Farajtabar, M., Farhadi, A., Rastegari, M., & Tuzel, O.,  Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2023.*
 
-**OSS DELETE: For internal instructions see [README.md](./internal/README.md).**
 
 **Reinforced ImageNet, ImageNet+, improves accuracy at similar iterations/wall-clock**
 

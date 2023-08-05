@@ -128,11 +128,9 @@ Follow the steps:
 - Download reinforcement metadata and set `reinforce.data_path` in `$CFG_FILE`.
 
 ```shell
-python train.py --config configs/imagenet/erm.yaml  # ImageNet training without 
-Reinforcements (ERM)
+python train.py --config configs/imagenet/erm.yaml  # ImageNet training without Reinforcements (ERM)
 python train.py --config configs/imagenet/kd.yaml  # Knowledge Distillation
-python train.py --config configs/imagenet/plus.yaml  # ImageNet+ training with 
-reinforcements
+python train.py --config configs/imagenet/plus.yaml  # ImageNet+ training with reinforcements
 ```
 
 Hyperparameters such as batch size for ImageNet training are optimized for 

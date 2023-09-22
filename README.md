@@ -5,6 +5,9 @@ A light-weight implementation of Dataset Reinforcement, pretrained checkpoints, 
 *, Faghri, F., Pouransari, H., Mehta, S., Farajtabar, M., Farhadi, A., Rastegari, M., & Tuzel, O.,  Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2023.*
 
 
+**Update 2023/09/22**: Table 7-Average column corrected in ArXiv V3. Correct 
+numbers: 30.4, 37.1, 37.9, 43.7, 39.6, 51.1.
+
 **Reinforced ImageNet, ImageNet+, improves accuracy at similar iterations/wall-clock**
 
 <p align="center">
